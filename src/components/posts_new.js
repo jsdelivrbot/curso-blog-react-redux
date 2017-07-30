@@ -46,7 +46,7 @@ class PostsNew extends Component {
     }
 }
 
-const validation = values => {
+function validate(values) {
     const errors = {};
 
     // Validate the input from 'values'
@@ -65,6 +65,6 @@ const validation = values => {
 }
 
 export default reduxForm({
-    validation,
+    validate,
     form: 'PostsNewForm'
 })(PostsNew);
