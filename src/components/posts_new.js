@@ -16,9 +16,15 @@ class PostsNew extends Component {
         );
     }
 
+    onSubmit(values) {
+        console.log(values);
+    }
+
     render() {
+        const { handleSubmit } = this.props;
+
         return (
-            <form>
+            <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
                 <Field 
                     label="Title"
                     name="title"
@@ -34,12 +40,13 @@ class PostsNew extends Component {
                     name="content"
                     component={this.renderField}
                 />
+                <button type="submit" className="btn btn-primary">Save</button>
             </form>
         );
     }
 }
 
-function validation(values) {
+const validation = values => {
     const errors = {};
 
     // Validate the input from 'values'
